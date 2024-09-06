@@ -1,0 +1,132 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: rgb(230, 230, 230);
+
+}
+
+header {
+    width: 100%;
+    max-width: 50rem;
+    margin: 0 auto;
+    margin-top: 1rem;
+    padding: 1rem;
+    outline: 1px solid black;
+
+    h1 {
+        font-size: 200px;
+        text-wrap: pretty;
+        height: min-content;
+        margin: 0;
+
+    }
+}
+
+main {
+    width: 100%;
+    max-width: 50rem;
+    margin: 0 auto;
+    padding: 3rem 0;
+    padding-bottom: 10rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+
+    section {
+        padding: 1rem;
+        outline: 1px solid black;
+
+    }
+
+
+}
+
+#login {
+    scroll-margin-top: 50px;
+
+    form {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    button {
+        width: 100px;
+    }
+}
+
+#logged-user {
+    display: flex;
+    flex-direction: column;
+    font-size: 30px;
+
+    #count {
+        padding: 3px 10px;
+        border: 1px solid grey;
+        border-radius: 4px;
+        background-color: white;
+        width: 10px;
+    }
+
+    #need {
+        font-weight: 700;
+        text-decoration: underline;
+    }
+}
+
+#general-info {
+    h2 {
+        font-size: 50px;
+    }
+
+    p {
+        font-size: 24px;
+        font-weight: 700;
+    }
+
+    ul {
+        margin-left: 1rem;
+    }
+
+    li {
+        margin-top: 5px;
+    }
+}
+
+#blog {
+    scroll-margin-top: 20px;
+
+}
+
+#blogForm {
+    display: flex;
+    flex-direction: column;
+
+    label {
+        font-size: 18px;
+    }
+
+    input,
+    textarea {
+        margin-bottom: 12px;
+        padding: 3px;
+        font-size: 18px;
+    }
+
+    textarea {
+        resize: vertical;
+        min-height: 200px;
+        max-height: 500px;
+
+    }
+}
+
+#important {
+    color: red;
+    font-weight: 700;
+    font-size: 18px;
+}

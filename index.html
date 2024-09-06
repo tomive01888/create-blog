@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create me a blog!</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Create new blog</h1>
+    </header>
+    <main>
+      <section id="general-info">
+        <h2>Guidance of this website</h2>
+        <p>Getting started:</p>
+        <ul>
+          <li>To start to creating a blog post, you must first <a href="#login">login</a></li>
+          <li>With that done. You can now start <a href="#blogForm">creating new blog</a></li>
+          <li>It logs the logged user below and shows the counter of how many blogs you have so far created!</li>
+        </ul>
+        <p>Suggestions</p>
+        <ul>
+          <li>Some of the inputs are optional, what is required is ONLY the title!</li>
+          <li>Try and have a default media url and alt, that gets on display if none is provided</li>
+        </ul>
+        <p>Media</p>
+        <ul>
+          <li>
+            Media url is meant to be direct link to image, cannot lead to a website containing that image must be
+            direct!
+          </li>
+          <li>
+            To get direct image, on Unplash as example, right click image and "copy image url", something like that. And
+            test it.
+          </li>
+        </ul>
+        <p>Tags</p>
+        <ul>
+          <li>
+            Tags will be different for each of us, in this case, I have taken use of comma seperation, so each tag MUST
+            be separate with commas!
+          </li>
+          <li>With use of JS each input as long as the comma seperate them they should be considered as one tag.</li>
+          <li>Optionally you can do checkboxes and have premade tag choices or generate more if needed.</li>
+        </ul>
+
+        <p>Body:</p>
+        <ul>
+          <li>
+            The way you type content inside the "body" is not necessarily how it will look on fetch and display on your
+            blog post. You will need to look into how to make sure it is taken into consideration the break points in
+            js! Read up
+            <a
+              href="https://stackoverflow.com/questions/863779/how-to-add-line-breaks-to-an-html-textarea"
+              target="_blank"
+              >here</a
+            >
+            <span style="font-style: italic">(opens in new tab)</span>
+          </li>
+          <li>If still unsure what I mean, ask chatGPT how to handle breakpoints in textarea.</li>
+        </ul>
+      </section>
+
+      <section id="login" autocomplete="off">
+        <form id="loginForm">
+          <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required autocomplete="off" />
+          </div>
+          <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required autocomplete="off" />
+          </div>
+
+          <button type="submit">Login</button>
+          <button type="button" id="logoutButton">Logout</button>
+        </form>
+      </section>
+
+      <section id="logged-user">
+        <h2>Logged in as:</h2>
+        <p class="username"></p>
+        <p class="total-blog-count">Posts you have created:<span id="count"></span> / <span id="need">12</span></p>
+      </section>
+
+      <!-- <section id="blog">
+        <form id="blogForm">
+          <label for="title"> <span id="important">*</span> Title:</label>
+          <input type="text" id="title" name="title" required />
+
+          <label for="body">Body:</label>
+          <textarea id="body" name="body"></textarea>
+
+          <label for="tags">Tags (comma separated):</label>
+          <span style="font-style: italic">Example of how to use tag input: Exciting, News, Horrendous</span>
+          <input type="text" id="tags" name="tags" />
+
+          <label for="mediaUrl">Media URL:</label>
+          <span
+            >Example link
+            <a
+              style="font-style: italic"
+              target="_blank"
+              href="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              >image</a
+            ></span
+          >
+          <input type="text" id="mediaUrl" name="mediaUrl" />
+
+          <label for="mediaAlt">Media Alt Text:</label>
+          <input type="text" id="mediaAlt" name="mediaAlt" />
+
+          <button type="submit">Submit</button>
+        </form>
+      </section> -->
+
+      <section>
+        <h2>Blog editor:</h2>
+
+        <form id="blogForm">
+          <input type="hidden" id="blogId" name="blogId" />
+
+          <label for="title">Title:</label>
+          <input type="text" id="title" name="title" placeholder="Enter a title here..." required />
+
+          <label for="body">Body:</label>
+          <textarea id="body" name="body" placeholder="Editor body goes here..."></textarea>
+
+          <label for="mediaUrl">Media URL:</label>
+          <div class="restrictions">
+            <p>If no image is provided a default image will be used with alternative text!</p>
+            <p class="redtext">*Only allows fully formed URL that links to a live and publicly accessible image</p>
+          </div>
+
+          <input type="text" id="mediaUrl" name="mediaUrl" placeholder="Optional" />
+
+          <label for="mediaAlt">Media Alt Text:</label>
+          <input type="text" id="mediaAlt" name="mediaAlt" placeholder="Optional" />
+
+          <div class="tag-container">
+            <label>Tags:</label>
+            <div>
+              <label><input type="checkbox" name="tags" value="Tech" /> Tech</label>
+              <label><input type="checkbox" name="tags" value="News" /> News</label>
+              <label><input type="checkbox" name="tags" value="Life" /> Life</label>
+              <label><input type="checkbox" name="tags" value="Health" /> Health</label>
+              <label><input type="checkbox" name="tags" value="Education" /> Education</label>
+              <label><input type="checkbox" name="tags" value="Innovation" /> Innovation</label>
+              <label><input type="checkbox" name="tags" value="Gadgets" /> Gadgets</label>
+              <label><input type="checkbox" name="tags" value="Science" /> Science</label>
+              <label><input type="checkbox" name="tags" value="Cybersecurity" /> Cybersecurity</label>
+            </div>
+          </div>
+
+          <button type="submit" class="submit">Submit</button>
+        </form>
+      </section>
+    </main>
+
+    <script type="module" src="/script.mjs"></script>
+    <script type="module" src="/userInfo.mjs"></script>
+    <script type="module" src="/createBlog.mjs"></script>
+  </body>
+</html>
