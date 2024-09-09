@@ -14,14 +14,11 @@ document.getElementById("blogForm").addEventListener("submit", async function (e
     title: title,
     body: body,
     tags: selectedTags,
-  };
-
-  if (mediaUrl || mediaAlt) {
-    blogData.media = {
+    media: {
       url: mediaUrl || "",
       alt: mediaAlt || "",
-    };
-  }
+    },
+  };
 
   try {
     const response = await fetch(`https://v2.api.noroff.dev/blog/posts/${userName}`, {
