@@ -4,11 +4,18 @@ const { accessToken, name: userName } = user;
 document.getElementById("blogForm").addEventListener("submit", async function (event) {
   event.preventDefault();
 
-  const title = document.getElementById("title").value;
-  const body = document.getElementById("body").value;
-  const mediaUrl = document.getElementById("mediaUrl").value;
-  const mediaAlt = document.getElementById("mediaAlt").value;
+  // Fetch form values
+  const title = document.getElementById("title").value.trim();
+  const body = document.getElementById("body").value.trim();
+  const mediaUrl = document.getElementById("mediaUrl").value.trim();
+  const mediaAlt = document.getElementById("mediaAlt").value.trim();
   const selectedTags = Array.from(document.querySelectorAll("input[name='tags']:checked")).map((tag) => tag.value);
+
+  // Basic validation for title and body (you can extend this as needed)
+  if (!title || !body) {
+    alert("Title and body are required.");
+    return;
+  }
 
   const blogData = {
     title: title,
@@ -33,11 +40,14 @@ document.getElementById("blogForm").addEventListener("submit", async function (e
     if (response.ok) {
       console.log("Blog successfully processed");
       alert("Success! Your blog has been created.");
-      blogForm.reset();
+      event.target.reset(); // Resets the form after successful submission
     } else {
-      console.error("Error processing blog:", await response.json());
+      const errorData = await response.json();
+      console.error("Error processing blog:", errorData);
+      alert(`Error: ${errorData.message || "Failed to process blog post."}`);
     }
   } catch (error) {
     console.error("Error during the request:", error);
+    alert("An error occurred while submitting your blog. Please try again.");
   }
 });
